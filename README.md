@@ -19,22 +19,22 @@ Tetrix Host is a program for your own Mac, PC, or server. Apps such as Cue pair 
 
 ## Status
 
-This is version 0.1, built on 2026-11-11. It works end to end and has not shipped.
+Version 0.1.0 is the first release, from 2026-11-11. It works end to end, and no app in a stable release uses it yet.
 
 What works: the host, the relay, pairing, the sealed tunnel, roles, the CLI, the Mac app, the Swift package, and the tests that hold the Go and Swift sides together. Tetrix's relay runs at `wss://relay.tetrix.tech`, on Cloudflare, from the code in `deploy/cloudflare`. A host uses it unless you [run your own](docs/how-to/run-your-own-relay.md).
 
 What does not exist yet:
 
 - **App support in a stable release.** Cue for Mac is the first app to pair with a host. That work is in the Cue repository, on its beta channel.
-- **Releases.** None is published yet, so Homebrew and the install script have nothing to download. Until the first release, run `make install` in a checkout. The Mac app has no signed build.
+- **A build of the Mac app.** A release holds the `tetrix-host` command only. Build the app from source with `make app`.
 - **A licence.** None has been chosen, so the code is not open source until one is added.
 
 ## Quick start
 
-You need Go 1.26 or later and [Ollama](https://ollama.com/download).
+You need [Homebrew](https://brew.sh) and [Ollama](https://ollama.com/download).
 
 ```sh
-make install
+brew install tetrix-technologies/tap/tetrix-host
 tetrix-host serve
 ```
 
@@ -46,7 +46,7 @@ tetrix-host chat "Say hello."
 tetrix-host status
 ```
 
-`make install` puts the command on your `PATH`. From the first release, one Homebrew command or one install script does the same without Go. [Install Tetrix Host](docs/how-to/install.md) has both.
+Without Homebrew, on Linux, or on Windows, see [Install Tetrix Host](docs/how-to/install.md).
 
 [Run your first host](docs/tutorial/run-your-first-host.md) continues from here to a paired device and a sealed tunnel.
 

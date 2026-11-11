@@ -17,8 +17,6 @@ targets: [
 ]
 ```
 
-Until the repository is published, add it by path: `.package(path: "../tetrix-host")`.
-
 ## Pair
 
 Take the code or link from the person, as text from a paste or a QR scan. Describe the device the way its owner should see it in the host's device list.
