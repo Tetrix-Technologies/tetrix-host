@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tetrix Host docs</title>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<style>
+	/* Tetrix palette: paper, ink, and one accent, moss. */
+	:root {
+		--bg: #F7F6F3; --raised: #FDFCFA; --inset: #EFECE4; --line: #E2DED6;
+		--fg: #1A1A1A; --soft: #4A4741; --muted: #736D61;
+		--accent: #4C583E; --accent-soft: #E3E6DC;
+	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--bg: #1B1A18; --raised: #24221F; --inset: #24221F; --line: #3A3731;
+			--fg: #EFEDE8; --soft: #B8B3A8; --muted: #8C877C;
+			--accent: #9BAA84; --accent-soft: #252A21;
+		}
+	}
+	* { box-sizing: border-box; }
+	body { margin: 0; font: 16px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; background: var(--bg); color: var(--soft); }
+	.layout { display: flex; min-height: 100vh; }
+	nav {
+		width: 290px; flex-shrink: 0; background: var(--raised); border-right: 1px solid var(--line);
+		padding: 22px 14px; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+	}
+	nav h1 { font: 600 19px/1.2 "Iowan Old Style", Georgia, serif; color: var(--fg); margin: 2px 8px 18px; }
+	nav .group { margin: 18px 0 4px; padding: 0 8px; font-size: 12px; color: var(--muted); }
+	nav a { display: block; padding: 5px 8px; border-radius: 8px; color: var(--soft); text-decoration: none; font-size: 14px; }
+	nav a:hover { background: var(--accent-soft); }
+	nav a.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+	nav a:focus-visible, main a:focus-visible, #burger:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+	main { flex: 1; min-width: 0; padding: 44px clamp(16px, 5vw, 72px) 96px; max-width: 920px; }
+	main h1, main h2, main h3 { color: var(--fg); line-height: 1.25; }
+	main h1 { font: 600 34px/1.2 "Iowan Old Style", Georgia, serif; margin: 0 0 20px; }
+	main h2 { font-size: 22px; margin-top: 2.2em; padding-top: 0.6em; border-top: 1px solid var(--line); }
+	main h3 { font-size: 17px; margin-top: 1.8em; }
+	main a { color: var(--accent); }
+	main strong { color: var(--fg); }
+	main code { font: 0.88em ui-monospace, "SF Mono", Menlo, monospace; background: var(--inset); padding: 2px 5px; border-radius: 4px; color: var(--fg); }
+	main pre { background: var(--inset); border: 1px solid var(--line); padding: 14px 16px; border-radius: 8px; overflow-x: auto; tab-size: 2; }
+	main pre code { background: none; padding: 0; }
+	main table { border-collapse: collapse; margin: 1em 0; font-size: 14.5px; display: block; overflow-x: auto; }
+	main th, main td { border-bottom: 1px solid var(--line); padding: 8px 14px 8px 0; text-align: left; vertical-align: top; }
+	main th { color: var(--muted); font-weight: 500; font-size: 13px; }
+	.mermaid { margin: 1.4em 0; overflow-x: auto; }
+	main img { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+	.meta { color: var(--muted); font: 12px ui-monospace, "SF Mono", Menlo, monospace; margin-bottom: 18px; }
+	#burger { display: none; }
+	@media (max-width: 800px) {
+		nav { position: fixed; z-index: 10; transform: translateX(-100%); transition: transform .2s; }
+		nav.open { transform: none; }
+		#burger { display: block; position: fixed; top: 12px; left: 12px; z-index: 11; background: var(--raised);
+			border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; font-size: 15px; color: var(--fg); }
+		main { padding-top: 64px; }
+	}
+	@media (prefers-reduced-motion: reduce) { nav { transition: none; } }
+</style>
+</head>
+<body>
+<button id="burger" aria-label="Show the list of pages">Pages</button>
+<div class="layout">
+	<nav id="nav" aria-label="Pages"><h1>Tetrix Host</h1><div id="navlist">Loading</div></nav>
+	<main id="content"><p>Loading</p></main>
+</div>
+<script>
+	// Groups in reading order. A folder that is not listed goes last.
+	const GROUPS = [
+		['', 'Start here'],
+		['tutorial', 'Tutorial'],
+		['how-to', 'How-to guides'],
+		['reference', 'Reference'],
+		['explanation', 'Explanation'],
+		['decisions', 'Decisions'],
+	];
+	const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+	mermaid.initialize({
+		startOnLoad: false,
+		theme: 'base',
+		themeVariables: dark
+			? { primaryColor: '#24221F', primaryTextColor: '#EFEDE8', primaryBorderColor: '#3A3731', lineColor: '#8C877C', secondaryColor: '#252A21', tertiaryColor: '#1B1A18', fontFamily: '-apple-system, sans-serif' }
+			: { primaryColor: '#FDFCFA', primaryTextColor: '#1A1A1A', primaryBorderColor: '#CFC9BD', lineColor: '#736D61', secondaryColor: '#E3E6DC', tertiaryColor: '#F7F6F3', fontFamily: '-apple-system, sans-serif' },
+	});
+	marked.setOptions({ gfm: true });
+
+	let entries = [];
+	const nav = document.getElementById('nav');
+	document.getElementById('burger').onclick = () => nav.classList.toggle('open');
+
+	// The hash is "#/<path>" or "#/<path>#<heading>".
+	function route() {
+		const raw = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
+		const [path, anchor] = raw.split('#');
+		return { path: path || 'README.md', anchor };
+	}
+
+	const slug = (text) => text.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+
+	// Resolves a relative link against the page it appears on.
+	function resolve(from, href) {
+		const parts = from.split('/').slice(0, -1);
+		for (const piece of href.split('/')) {
+			if (piece === '..') parts.pop();
+			else if (piece !== '.' && piece !== '') parts.push(piece);
+		}
+		return parts.join('/');
+	}
+
+	function renderNav() {
+		const current = route().path;
+		const byGroup = new Map();
+		for (const entry of entries) {
+			const group = entry.path.includes('/') ? entry.path.split('/')[0] : '';
+			if (!byGroup.has(group)) byGroup.set(group, []);
+			byGroup.get(group).push(entry);
+		}
+		const known = GROUPS.map(([key]) => key);
+		const order = [...GROUPS, ...[...byGroup.keys()].filter((key) => !known.includes(key)).map((key) => [key, key])];
+		let html = '';
+		for (const [key, label] of order) {
+			if (!byGroup.has(key)) continue;
+			html += `<div class="group">${label}</div>`;
+			for (const entry of byGroup.get(key)) {
+				const active = entry.path === current ? ' class="active" aria-current="page"' : '';
+				html += `<a href="#/${entry.path}"${active}>${entry.title}</a>`;
+			}
+		}
+		document.getElementById('navlist').innerHTML = html;
+	}
+
+	async function renderDoc() {
+		const { path, anchor } = route();
+		const response = await fetch(`/docs/${path}`);
+		const markdown = response.ok ? await response.text() : `# Page not found\n\nThere is no page at \`${path}\`.`;
+		const content = document.getElementById('content');
+		content.innerHTML = `<div class="meta">docs/${path}</div>` + marked.parse(markdown);
+
+		for (const heading of content.querySelectorAll('h2, h3')) heading.id = slug(heading.textContent);
+
+		// Links between pages are written as relative paths, so that they
+		// also work on GitHub. Point them at this viewer's routes.
+		for (const link of content.querySelectorAll('a[href]')) {
+			const href = link.getAttribute('href');
+			if (/^[a-z]+:/i.test(href)) { link.target = '_blank'; link.rel = 'noopener'; continue; }
+			if (href.startsWith('#')) { link.setAttribute('href', `#/${path}${href}`); continue; }
+			const [file, target] = href.split('#');
+			if (file.endsWith('.md')) link.setAttribute('href', `#/${resolve(path, file)}${target ? '#' + target : ''}`);
+			else if (!file.includes('.')) link.setAttribute('href', `#/${resolve(path, file)}/README.md`);
+		}
+
+		// A picture's path is relative to its page too.
+		for (const image of content.querySelectorAll('img[src]')) {
+			const src = image.getAttribute('src');
+			if (!/^[a-z]+:/i.test(src) && !src.startsWith('/')) image.setAttribute('src', `/docs/${resolve(path, src)}`);
+		}
+
+		let count = 0;
+		for (const block of content.querySelectorAll('pre code.language-mermaid')) {
+			const diagram = document.createElement('div');
+			diagram.className = 'mermaid';
+			diagram.id = `diagram-${count++}`;
+			diagram.textContent = block.textContent;
+			block.closest('pre').replaceWith(diagram);
+		}
+		await mermaid.run({ querySelector: '.mermaid' }).catch(() => {});
+
+		renderNav();
+		nav.classList.remove('open');
+		document.title = (content.querySelector('h1')?.textContent ?? 'Docs') + ' · Tetrix Host';
+		const target = anchor && document.getElementById(anchor);
+		if (target) target.scrollIntoView();
+		else scrollTo(0, 0);
+	}
+
+	addEventListener('hashchange', renderDoc);
+	fetch('/manifest.json').then((r) => r.json()).then((m) => {
+		entries = m.entries;
+		renderDoc();
+	});
+</script>
+</body>
+</html>
