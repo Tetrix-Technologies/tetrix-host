@@ -1,0 +1,23 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	// The relay as a Cloudflare Worker. One Durable Object per host ID holds
+	// that host's socket and the sockets of its clients, and copies messages
+	// between them. It is the same protocol as `tetrix-host relay serve`:
+	// docs/reference/protocol.md.
+	//
+	// The account is not named here. Set CLOUDFLARE_ACCOUNT_ID and
+	// CLOUDFLARE_API_TOKEN when you deploy. To run your own, change the
+	// route to a name in a zone you hold.
+	"name": "tetrix-host-relay",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-10-01",
+	"workers_dev": false,
+	"routes": [{ "pattern": "relay.tetrix.tech", "custom_domain": true }],
+	"durable_objects": {
+		"bindings": [{ "name": "HOSTS", "class_name": "HostRoom" }]
+	},
+	"migrations": [{ "tag": "v1", "new_sqlite_classes": ["HostRoom"] }],
+	// Off on purpose. Invocation logs would record which host ID each
+	// request named. The relay keeps no record of who talks to whom.
+	"observability": { "enabled": false }
+}
