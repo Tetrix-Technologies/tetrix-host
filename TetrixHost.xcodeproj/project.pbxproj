@@ -1,0 +1,652 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0406A0187E4B6EE7FC55CB5E /* PairingSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75652EA2B95926AB4C6F199 /* PairingSheet.swift */; };
+		0735DF06AA2ED6795E07B2A0 /* DownloadSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6486E1FE25F78CB8C2CC24 /* DownloadSheet.swift */; };
+		0919BC20EE325059C5C26CF6 /* LiveHostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D984479BF8E2DB7FF8340 /* LiveHostService.swift */; };
+		0BAF0C111897C5F80ADF3AAA /* HostEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C8A55126B8DE89276EFF9 /* HostEvent.swift */; };
+		0C049C092A626EA2F90F9E6A /* ChatDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A63AE891F8F3B88817D53 /* ChatDrawer.swift */; };
+		0F5490FD460B7083A87ED0E7 /* HostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD28EB3056B11B5D2A5700D /* HostService.swift */; };
+		15BAAF0E6D2665EB12DD0256 /* ChatSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F13BDAA36B7C505774AEFBB /* ChatSession.swift */; };
+		1F3303D6F59558E206B60004 /* WindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053B9DF9A6EA8F984C239FC /* WindowState.swift */; };
+		3D2E2A267A33A636777A5E36 /* ConnectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C806BE7971C4D9BCE28FBD /* ConnectorView.swift */; };
+		3D53DD18FEFA13063489E66B /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4FF057865FA0B28B1FBD4 /* Components.swift */; };
+		41E8289E27A33BEB2244600A /* CardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB1EBD27E0FFF08C2FC0B1 /* CardViews.swift */; };
+		4A683206E7ECE75C05F2AF55 /* ModelCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C41FC62D6E8DDBD20BE6BD /* ModelCatalog.swift */; };
+		57209EFA3841DB7B11A72C48 /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB777D443D07F6D9ACCA41 /* InspectorView.swift */; };
+		7086EA8120D00B062480A348 /* Replicas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1447DB99A4151C1F01849 /* Replicas.swift */; };
+		766CECE93DD65B39F3B183C4 /* BoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E0F915192478DF7325EF5 /* BoardState.swift */; };
+		7CE288599659E1B6679AE1AD /* HostStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BD7A40D110E3F0991CD2E1 /* HostStoreTests.swift */; };
+		8EAEB5A264F8B61AF9F91D68 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9415060436826D7CFA080098 /* BoardView.swift */; };
+		92108EE2791D4F380AC3E947 /* BoardLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FDE3FEC43806E5691A4DFF /* BoardLayoutTests.swift */; };
+		9CB2C4EB5E72F45A193A3985 /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB82300FE5D428078C29A32 /* Snapshots.swift */; };
+		A4DA16D27E8BA2350525031E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8DE2982D13E65807A50F7AD /* Assets.xcassets */; };
+		A6ACE103AACE9B6DBF91A8F7 /* HostEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D0138A6E6846BFF68407B /* HostEnvironment.swift */; };
+		A73E6472CAC2C794658828F9 /* StatusDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D414898F01172733E2360DEA /* StatusDecodingTests.swift */; };
+		AC22BA76B74516A8373A713D /* HostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7E3351EB2DA2284A25C463 /* HostStore.swift */; };
+		AD1D745ABC91FD947D923694 /* LocalMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E13A3FA2266D2630574BA /* LocalMachine.swift */; };
+		ADF7B16C50ECD2AB481ABCF0 /* FixtureHostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B187492413442DAA8C50E12 /* FixtureHostService.swift */; };
+		B2323FFDFA0C33CA0073E7A1 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC823E808256EAC4BA05C09 /* RootView.swift */; };
+		B7B39DA0013A5BD331BBB587 /* LiveHostSupervisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDF8D31E3F522BA87EF68C /* LiveHostSupervisor.swift */; };
+		BBFE0D000CF5371BC833DB1A /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06990210BEF3D9F9BD16ED5D /* Tokens.swift */; };
+		BCB7564788FF48C51A65618C /* ToolbarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44903E920D1FC35A47B48424 /* ToolbarViews.swift */; };
+		BFF6DE35729BA7491C311EDA /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B977FF6BA8449CE6F1FEA6 /* Fixtures.swift */; };
+		D7C59EB62557335E31846039 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5456334ED8629C3374F9B8CC /* MainView.swift */; };
+		DC347D3E7673A71225A4F6F1 /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D82EA4458C633C899BAE7D /* Formatting.swift */; };
+		DCC1B494160FD3327CA76D63 /* LiveHostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB7898286D77938D0DE0AE /* LiveHostTests.swift */; };
+		E5365374118F26B71F0191CD /* FormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FF6579A86DA632691BC162 /* FormattingTests.swift */; };
+		F3C201FFF560F37FE109BD7A /* HostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43226223848F4C0859EA7AE9 /* HostStatus.swift */; };
+		F42C486396EDE7E6AFD76ECB /* TetrixHostApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9DF6123D02FE6C93EB1C66 /* TetrixHostApp.swift */; };
+		FD811612242695FE032B59C3 /* BoardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C3E5A6744D912CF4EFEF1D /* BoardLayout.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E12824042F0F4C3DADCCBBA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CC9CB78E515C987C71092A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAC856C75018A5A7258E48C8;
+			remoteInfo = TetrixHost;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06990210BEF3D9F9BD16ED5D /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
+		0D6486E1FE25F78CB8C2CC24 /* DownloadSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSheet.swift; sourceTree = "<group>"; };
+		0F2E13A3FA2266D2630574BA /* LocalMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMachine.swift; sourceTree = "<group>"; };
+		2A2A63AE891F8F3B88817D53 /* ChatDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDrawer.swift; sourceTree = "<group>"; };
+		2C7D984479BF8E2DB7FF8340 /* LiveHostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveHostService.swift; sourceTree = "<group>"; };
+		43226223848F4C0859EA7AE9 /* HostStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostStatus.swift; sourceTree = "<group>"; };
+		43C41FC62D6E8DDBD20BE6BD /* ModelCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCatalog.swift; sourceTree = "<group>"; };
+		44903E920D1FC35A47B48424 /* ToolbarViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViews.swift; sourceTree = "<group>"; };
+		5456334ED8629C3374F9B8CC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5EF1447DB99A4151C1F01849 /* Replicas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Replicas.swift; sourceTree = "<group>"; };
+		6DD28EB3056B11B5D2A5700D /* HostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostService.swift; sourceTree = "<group>"; };
+		75B977FF6BA8449CE6F1FEA6 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		77CB7898286D77938D0DE0AE /* LiveHostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveHostTests.swift; sourceTree = "<group>"; };
+		8053B9DF9A6EA8F984C239FC /* WindowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowState.swift; sourceTree = "<group>"; };
+		82EB777D443D07F6D9ACCA41 /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
+		8764AEC6D8151EDE3DD8AA0A /* TetrixHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TetrixHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B187492413442DAA8C50E12 /* FixtureHostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureHostService.swift; sourceTree = "<group>"; };
+		8DC823E808256EAC4BA05C09 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		9415060436826D7CFA080098 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		97FDE3FEC43806E5691A4DFF /* BoardLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLayoutTests.swift; sourceTree = "<group>"; };
+		9F13BDAA36B7C505774AEFBB /* ChatSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSession.swift; sourceTree = "<group>"; };
+		A0A4FF057865FA0B28B1FBD4 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		A90C8A55126B8DE89276EFF9 /* HostEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostEvent.swift; sourceTree = "<group>"; };
+		B0FB1EBD27E0FFF08C2FC0B1 /* CardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViews.swift; sourceTree = "<group>"; };
+		B3C3E5A6744D912CF4EFEF1D /* BoardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardLayout.swift; sourceTree = "<group>"; };
+		B75652EA2B95926AB4C6F199 /* PairingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingSheet.swift; sourceTree = "<group>"; };
+		C8D82EA4458C633C899BAE7D /* Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatting.swift; sourceTree = "<group>"; };
+		C8DE2982D13E65807A50F7AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF7E3351EB2DA2284A25C463 /* HostStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostStore.swift; sourceTree = "<group>"; };
+		D15780D8D3C51C547EFDDB57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D414898F01172733E2360DEA /* StatusDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDecodingTests.swift; sourceTree = "<group>"; };
+		D5EDF8D31E3F522BA87EF68C /* LiveHostSupervisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveHostSupervisor.swift; sourceTree = "<group>"; };
+		D7BD7A40D110E3F0991CD2E1 /* HostStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostStoreTests.swift; sourceTree = "<group>"; };
+		DB9DF6123D02FE6C93EB1C66 /* TetrixHostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrixHostApp.swift; sourceTree = "<group>"; };
+		E18D0138A6E6846BFF68407B /* HostEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostEnvironment.swift; sourceTree = "<group>"; };
+		E8C806BE7971C4D9BCE28FBD /* ConnectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectorView.swift; sourceTree = "<group>"; };
+		F35E0F915192478DF7325EF5 /* BoardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardState.swift; sourceTree = "<group>"; };
+		F7FF6579A86DA632691BC162 /* FormattingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattingTests.swift; sourceTree = "<group>"; };
+		FD8C982B804C69F913D17FCC /* TetrixHostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TetrixHostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFB82300FE5D428078C29A32 /* Snapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		00E1BA29A12555B9E9828455 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A2A63AE891F8F3B88817D53 /* ChatDrawer.swift */,
+				0D6486E1FE25F78CB8C2CC24 /* DownloadSheet.swift */,
+				82EB777D443D07F6D9ACCA41 /* InspectorView.swift */,
+				5456334ED8629C3374F9B8CC /* MainView.swift */,
+				B75652EA2B95926AB4C6F199 /* PairingSheet.swift */,
+				8DC823E808256EAC4BA05C09 /* RootView.swift */,
+				44903E920D1FC35A47B48424 /* ToolbarViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		29756F381261B0EFB8703561 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8B187492413442DAA8C50E12 /* FixtureHostService.swift */,
+				75B977FF6BA8449CE6F1FEA6 /* Fixtures.swift */,
+				E18D0138A6E6846BFF68407B /* HostEnvironment.swift */,
+				6DD28EB3056B11B5D2A5700D /* HostService.swift */,
+				2C7D984479BF8E2DB7FF8340 /* LiveHostService.swift */,
+				D5EDF8D31E3F522BA87EF68C /* LiveHostSupervisor.swift */,
+				0F2E13A3FA2266D2630574BA /* LocalMachine.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		51576A9869EBAC47E8B80313 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C8D82EA4458C633C899BAE7D /* Formatting.swift */,
+				A90C8A55126B8DE89276EFF9 /* HostEvent.swift */,
+				43226223848F4C0859EA7AE9 /* HostStatus.swift */,
+				43C41FC62D6E8DDBD20BE6BD /* ModelCatalog.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		593CADD85CB3F2095366E28A /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				5EF1447DB99A4151C1F01849 /* Replicas.swift */,
+				FFB82300FE5D428078C29A32 /* Snapshots.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		7ED82682E605739FDC6D4888 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B0662A7EF780B913C7B846E1 /* TetrixHost */,
+				E273059D69884633A668E69E /* TetrixHostTests */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		878C55127853EB7DF9AD7573 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				B3C3E5A6744D912CF4EFEF1D /* BoardLayout.swift */,
+				9415060436826D7CFA080098 /* BoardView.swift */,
+				B0FB1EBD27E0FFF08C2FC0B1 /* CardViews.swift */,
+				E8C806BE7971C4D9BCE28FBD /* ConnectorView.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		B0662A7EF780B913C7B846E1 /* TetrixHost */ = {
+			isa = PBXGroup;
+			children = (
+				C8DE2982D13E65807A50F7AD /* Assets.xcassets */,
+				D15780D8D3C51C547EFDDB57 /* Info.plist */,
+				DB9DF6123D02FE6C93EB1C66 /* TetrixHostApp.swift */,
+				878C55127853EB7DF9AD7573 /* Board */,
+				593CADD85CB3F2095366E28A /* Debug */,
+				BE503330DBD28FD04C7D0227 /* Design */,
+				51576A9869EBAC47E8B80313 /* Model */,
+				29756F381261B0EFB8703561 /* Service */,
+				B3455EFB793685B6947380CA /* Store */,
+				00E1BA29A12555B9E9828455 /* Views */,
+			);
+			path = TetrixHost;
+			sourceTree = "<group>";
+		};
+		B3455EFB793685B6947380CA /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				F35E0F915192478DF7325EF5 /* BoardState.swift */,
+				9F13BDAA36B7C505774AEFBB /* ChatSession.swift */,
+				CF7E3351EB2DA2284A25C463 /* HostStore.swift */,
+				8053B9DF9A6EA8F984C239FC /* WindowState.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		BE503330DBD28FD04C7D0227 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4FF057865FA0B28B1FBD4 /* Components.swift */,
+				06990210BEF3D9F9BD16ED5D /* Tokens.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		CD2F757B2134A22DA9AEF9B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8764AEC6D8151EDE3DD8AA0A /* TetrixHost.app */,
+				FD8C982B804C69F913D17FCC /* TetrixHostTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E273059D69884633A668E69E /* TetrixHostTests */ = {
+			isa = PBXGroup;
+			children = (
+				97FDE3FEC43806E5691A4DFF /* BoardLayoutTests.swift */,
+				F7FF6579A86DA632691BC162 /* FormattingTests.swift */,
+				D7BD7A40D110E3F0991CD2E1 /* HostStoreTests.swift */,
+				77CB7898286D77938D0DE0AE /* LiveHostTests.swift */,
+				D414898F01172733E2360DEA /* StatusDecodingTests.swift */,
+			);
+			path = TetrixHostTests;
+			sourceTree = "<group>";
+		};
+		E2F3F15ACDF4F2318383018F = {
+			isa = PBXGroup;
+			children = (
+				7ED82682E605739FDC6D4888 /* App */,
+				CD2F757B2134A22DA9AEF9B2 /* Products */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 1;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F6451AF4CBBEA07AE5272381 /* TetrixHostTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4D0A04D725140C23E4C6A90 /* Build configuration list for PBXNativeTarget "TetrixHostTests" */;
+			buildPhases = (
+				F176C82164DAEE36C7D00FD9 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4D2AA5A7DE2D009F4D9FA55 /* PBXTargetDependency */,
+			);
+			name = TetrixHostTests;
+			packageProductDependencies = (
+			);
+			productName = TetrixHostTests;
+			productReference = FD8C982B804C69F913D17FCC /* TetrixHostTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAC856C75018A5A7258E48C8 /* TetrixHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CC2E0901B43F2BF3C9021B6 /* Build configuration list for PBXNativeTarget "TetrixHost" */;
+			buildPhases = (
+				A3D7DB55F4AEC90218002D84 /* Sources */,
+				E395BD397FC75AE256E170AE /* Resources */,
+				B98CF6BEB8863D11CAEB70A6 /* Build tetrix-host */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TetrixHost;
+			packageProductDependencies = (
+			);
+			productName = TetrixHost;
+			productReference = 8764AEC6D8151EDE3DD8AA0A /* TetrixHost.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8CC9CB78E515C987C71092A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					F6451AF4CBBEA07AE5272381 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					FAC856C75018A5A7258E48C8 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 237966C1974A871300151A57 /* Build configuration list for PBXProject "TetrixHost" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E2F3F15ACDF4F2318383018F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = CD2F757B2134A22DA9AEF9B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAC856C75018A5A7258E48C8 /* TetrixHost */,
+				F6451AF4CBBEA07AE5272381 /* TetrixHostTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E395BD397FC75AE256E170AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4DA16D27E8BA2350525031E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B98CF6BEB8863D11CAEB70A6 /* Build tetrix-host */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build tetrix-host";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n# Pass TETRIX_HOST_SKIP_HELPER=YES to xcodebuild to build the app\n# alone, for example while the Go code does not compile.\nif [ \"${TETRIX_HOST_SKIP_HELPER:-NO}\" = \"YES\" ]; then\n\techo \"warning: TETRIX_HOST_SKIP_HELPER is set, so this build does not rebuild the tetrix-host helper.\"\n\texit 0\nfi\n# Xcode's PATH has no Go, so look where Go usually lives.\nPATH=\"$PATH:/usr/local/go/bin:/opt/homebrew/bin:$HOME/go/bin\"\nif ! command -v go >/dev/null 2>&1; then\n\techo \"warning: Go is not installed, so this build has no tetrix-host helper. Install Go, or set TETRIX_HOST_BINARY when you run the app.\"\n\texit 0\nfi\nHELPERS=\"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Helpers\"\nmkdir -p \"$HELPERS\"\ncd \"$SRCROOT\"\ngo build -o \"$HELPERS/tetrix-host\" ./cmd/tetrix-host\nif [ -n \"$EXPANDED_CODE_SIGN_IDENTITY\" ]; then\n\tcodesign --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" --options runtime \"$HELPERS/tetrix-host\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3D7DB55F4AEC90218002D84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD811612242695FE032B59C3 /* BoardLayout.swift in Sources */,
+				766CECE93DD65B39F3B183C4 /* BoardState.swift in Sources */,
+				8EAEB5A264F8B61AF9F91D68 /* BoardView.swift in Sources */,
+				41E8289E27A33BEB2244600A /* CardViews.swift in Sources */,
+				0C049C092A626EA2F90F9E6A /* ChatDrawer.swift in Sources */,
+				15BAAF0E6D2665EB12DD0256 /* ChatSession.swift in Sources */,
+				3D53DD18FEFA13063489E66B /* Components.swift in Sources */,
+				3D2E2A267A33A636777A5E36 /* ConnectorView.swift in Sources */,
+				0735DF06AA2ED6795E07B2A0 /* DownloadSheet.swift in Sources */,
+				ADF7B16C50ECD2AB481ABCF0 /* FixtureHostService.swift in Sources */,
+				BFF6DE35729BA7491C311EDA /* Fixtures.swift in Sources */,
+				DC347D3E7673A71225A4F6F1 /* Formatting.swift in Sources */,
+				A6ACE103AACE9B6DBF91A8F7 /* HostEnvironment.swift in Sources */,
+				0BAF0C111897C5F80ADF3AAA /* HostEvent.swift in Sources */,
+				0F5490FD460B7083A87ED0E7 /* HostService.swift in Sources */,
+				F3C201FFF560F37FE109BD7A /* HostStatus.swift in Sources */,
+				AC22BA76B74516A8373A713D /* HostStore.swift in Sources */,
+				57209EFA3841DB7B11A72C48 /* InspectorView.swift in Sources */,
+				0919BC20EE325059C5C26CF6 /* LiveHostService.swift in Sources */,
+				B7B39DA0013A5BD331BBB587 /* LiveHostSupervisor.swift in Sources */,
+				AD1D745ABC91FD947D923694 /* LocalMachine.swift in Sources */,
+				D7C59EB62557335E31846039 /* MainView.swift in Sources */,
+				4A683206E7ECE75C05F2AF55 /* ModelCatalog.swift in Sources */,
+				0406A0187E4B6EE7FC55CB5E /* PairingSheet.swift in Sources */,
+				7086EA8120D00B062480A348 /* Replicas.swift in Sources */,
+				B2323FFDFA0C33CA0073E7A1 /* RootView.swift in Sources */,
+				9CB2C4EB5E72F45A193A3985 /* Snapshots.swift in Sources */,
+				F42C486396EDE7E6AFD76ECB /* TetrixHostApp.swift in Sources */,
+				BBFE0D000CF5371BC833DB1A /* Tokens.swift in Sources */,
+				BCB7564788FF48C51A65618C /* ToolbarViews.swift in Sources */,
+				1F3303D6F59558E206B60004 /* WindowState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F176C82164DAEE36C7D00FD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92108EE2791D4F380AC3E947 /* BoardLayoutTests.swift in Sources */,
+				E5365374118F26B71F0191CD /* FormattingTests.swift in Sources */,
+				7CE288599659E1B6679AE1AD /* HostStoreTests.swift in Sources */,
+				DCC1B494160FD3327CA76D63 /* LiveHostTests.swift in Sources */,
+				A73E6472CAC2C794658828F9 /* StatusDecodingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F4D2AA5A7DE2D009F4D9FA55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAC856C75018A5A7258E48C8 /* TetrixHost */;
+			targetProxy = E12824042F0F4C3DADCCBBA3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		384FABD2C12B3E47B70EA89F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = App/TetrixHost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Tech.Tetrix.Host;
+				PRODUCT_MODULE_NAME = TetrixHost;
+				PRODUCT_NAME = "Tetrix Host";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		49F6B21BA7CDCADCD5C56603 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Tech.Tetrix.HostTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tetrix Host.app/Contents/MacOS/Tetrix Host";
+			};
+			name = Release;
+		};
+		7B941A7BFB60D99556DDE5AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Tech.Tetrix.HostTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tetrix Host.app/Contents/MacOS/Tetrix Host";
+			};
+			name = Debug;
+		};
+		974CFDC7B92B6F5BD5006343 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = App/TetrixHost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Tech.Tetrix.Host;
+				PRODUCT_MODULE_NAME = TetrixHost;
+				PRODUCT_NAME = "Tetrix Host";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A1DA5DF50844D17B469A0E95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		DE22575413605C77FA93B555 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CC2E0901B43F2BF3C9021B6 /* Build configuration list for PBXNativeTarget "TetrixHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				974CFDC7B92B6F5BD5006343 /* Debug */,
+				384FABD2C12B3E47B70EA89F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		237966C1974A871300151A57 /* Build configuration list for PBXProject "TetrixHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1DA5DF50844D17B469A0E95 /* Debug */,
+				DE22575413605C77FA93B555 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D4D0A04D725140C23E4C6A90 /* Build configuration list for PBXNativeTarget "TetrixHostTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B941A7BFB60D99556DDE5AF /* Debug */,
+				49F6B21BA7CDCADCD5C56603 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8CC9CB78E515C987C71092A2 /* Project object */;
+}
