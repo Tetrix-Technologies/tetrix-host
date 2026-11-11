@@ -26,7 +26,7 @@ What works: the host, the relay, pairing, the sealed tunnel, roles, the CLI, the
 What does not exist yet:
 
 - **App support in a stable release.** Cue for Mac is the first app to pair with a host. That work is in the Cue repository, on its beta channel.
-- **Releases.** There are no signed builds. Build from source.
+- **Releases.** None is published yet, so Homebrew and the install script have nothing to download. Until the first release, run `make install` in a checkout. The Mac app has no signed build.
 - **A licence.** None has been chosen, so the code is not open source until one is added.
 
 ## Quick start
@@ -34,17 +34,19 @@ What does not exist yet:
 You need Go 1.26 or later and [Ollama](https://ollama.com/download).
 
 ```sh
-go build -o tetrix-host ./cmd/tetrix-host
-./tetrix-host serve
+make install
+tetrix-host serve
 ```
 
 In a second terminal:
 
 ```sh
-./tetrix-host models pull qwen3:0.6b
-./tetrix-host chat "Say hello."
-./tetrix-host status
+tetrix-host models pull qwen3:0.6b
+tetrix-host chat "Say hello."
+tetrix-host status
 ```
+
+`make install` puts the command on your `PATH`. From the first release, one Homebrew command or one install script does the same without Go. [Install Tetrix Host](docs/how-to/install.md) has both.
 
 [Run your first host](docs/tutorial/run-your-first-host.md) continues from here to a paired device and a sealed tunnel.
 
@@ -62,6 +64,7 @@ The host does not run models itself. It fronts an engine such as Ollama on the s
 
 | To | Read |
 |----|------|
+| Install the command | [Install Tetrix Host](docs/how-to/install.md) |
 | Get a host running | [Run your first host](docs/tutorial/run-your-first-host.md) |
 | Pair an app, choose models, add an engine, run in the background, run a relay, use the Mac app | The guides in [docs/how-to](docs/how-to) |
 | Use a host from a Swift app | [Use a host from a Swift app](docs/how-to/use-a-host-from-swift.md) |
@@ -76,6 +79,7 @@ To read the docs as a site, run `make docs` and open the address it prints.
 | Command | Does |
 |---------|------|
 | `make build` | Builds `dist/tetrix-host` |
+| `make install` | Builds the command and installs it on your `PATH` |
 | `make test` | Runs the Go tests with the race detector, and the Swift tests |
 | `make interop` | Runs the Swift client against the Go host through a relay |
 | `make vectors` | Rewrites the handshake vectors after a deliberate protocol change |
@@ -83,6 +87,9 @@ To read the docs as a site, run `make docs` and open the address it prints.
 | `make app` | Generates the Xcode project and builds the Mac app |
 | `make docs` | Serves the docs as a site on `127.0.0.1:4786` |
 | `make relay-test` | Runs the Go relay's tests and the interop run against the Cloudflare Worker, started locally |
+| `make dist VERSION=0.1.0` | Builds the release archives in `dist/release` |
+| `make install-test` | Tests `install.sh`, and the Homebrew formula with `BREW=1`, against a release built on this machine |
+| `make release VERSION=0.1.0` | Publishes a release. See [Publish a release](docs/how-to/publish-a-release.md) |
 
 The Go and Swift sides implement one protocol. A change to the wire format touches `internal/wire/wire.go`, `Sources/TetrixHostKit/Wire.swift`, and `docs/reference/protocol.md` together, and `make test` and `make interop` must both pass.
 

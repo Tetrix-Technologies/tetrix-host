@@ -4,13 +4,24 @@ In this tutorial we start a host on a Mac, give it two small models, talk to bot
 
 You need a Mac with Apple silicon, [Go](https://go.dev/dl/) 1.26 or later, and about 1 GB of free disk space.
 
-## Build the host
+## Install the host
 
-First, build the `tetrix-host` command from the repository root.
+First, build and install the `tetrix-host` command from the repository root.
 
 ```sh
-go build -o tetrix-host ./cmd/tetrix-host
-./tetrix-host version
+make install
+```
+
+The command goes in `/usr/local/bin`, so `sudo` may ask for your password. The last lines say where the command is.
+
+```
+tetrix-host 0.1.0-dev is installed at /usr/local/bin/tetrix-host.
+```
+
+Now check that your shell finds it.
+
+```sh
+tetrix-host version
 ```
 
 You should see the name and a version.
@@ -36,7 +47,7 @@ You should see a version number in JSON.
 Now start the host. It runs in this terminal until you press Ctrl-C.
 
 ```sh
-./tetrix-host serve
+tetrix-host serve
 ```
 
 The last lines look like this. The host ID on your machine is different.
@@ -48,7 +59,7 @@ time=2026-11-11T12:28:55.701+10:00 level=INFO msg=serving address=127.0.0.1:4784
 
 A third line says the tunnel is up. The host has dialed out to Tetrix's relay, which is how an app on another device will reach it.
 
-Leave this terminal open, and open a second one in the same directory for the rest of the tutorial.
+Leave this terminal open, and open a second one for the rest of the tutorial.
 
 ## Download two models
 
@@ -57,8 +68,8 @@ A host has two kinds of work to hand out. Deep work needs thought and goes to a 
 We download a small model for each. These two are tiny, so they download in about a minute. They are not good enough for real work.
 
 ```sh
-./tetrix-host models pull qwen3:0.6b
-./tetrix-host models pull gemma3:270m
+tetrix-host models pull qwen3:0.6b
+tetrix-host models pull gemma3:270m
 ```
 
 Each command shows its progress and ends with a line such as `Downloaded qwen3:0.6b.`
@@ -66,9 +77,9 @@ Each command shows its progress and ends with a line such as `Downloaded qwen3:0
 Now assign them.
 
 ```sh
-./tetrix-host use deep qwen3:0.6b
-./tetrix-host use quick gemma3:270m
-./tetrix-host models
+tetrix-host use deep qwen3:0.6b
+tetrix-host use quick gemma3:270m
+tetrix-host models
 ```
 
 The list shows which model does what.
@@ -84,13 +95,13 @@ ollama/qwen3:0.6b   0.5 GB  deep      tools, thinking
 Send a prompt to the deep model.
 
 ```sh
-./tetrix-host chat "What is 2 + 2? Answer with one number."
+tetrix-host chat "What is 2 + 2? Answer with one number."
 ```
 
 The model's reasoning appears dimmed, then its answer. Now send one to the quick model.
 
 ```sh
-./tetrix-host chat --quick "Say hello in five words."
+tetrix-host chat --quick "Say hello in five words."
 ```
 
 The answer comes back faster. Notice that we asked for a kind of work both times, never for a model by name. Apps do the same.
@@ -100,7 +111,7 @@ The answer comes back faster. Notice that we asked for a kind of work both times
 An app on another device reaches the host through a relay. The host dialed out to the relay when it started, so your router needs no changes.
 
 ```sh
-./tetrix-host status
+tetrix-host status
 ```
 
 The status shows the tunnel connected.
@@ -118,7 +129,7 @@ The relay passes sealed messages and holds no key that opens them. If you would 
 Last, we ask the host to check itself.
 
 ```sh
-./tetrix-host doctor
+tetrix-host doctor
 ```
 
 The final check pairs a throwaway device through the relay, sends one sealed request the way an app would, and unpairs the device.

@@ -4,7 +4,7 @@
 
 ## Install the service
 
-Put the `tetrix-host` binary where it will stay, for example `/usr/local/bin`. The service runs the binary from the path it had when you installed the service.
+[Install the command](install.md) first. The service runs the command from the place it is installed, so a copy in a build directory stops when you delete the directory.
 
 ```sh
 tetrix-host service install
@@ -28,6 +28,14 @@ loginctl enable-linger
 ```sh
 tetrix-host service status
 tetrix-host status
+```
+
+## Restart the host after an upgrade
+
+An upgrade replaces the command, but the running host stays on the old version. To restart it on the new version, install the service again.
+
+```sh
+tetrix-host service install
 ```
 
 ## Remove the service

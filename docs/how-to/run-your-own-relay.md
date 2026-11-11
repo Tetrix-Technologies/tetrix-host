@@ -45,23 +45,22 @@ You need a machine with a public address and a domain name that points at it.
 
 ### Start the relay
 
-On the machine, build the binary and start the relay.
+On the machine, [install the command](install.md) and start the relay.
 
 ```sh
-go build -o tetrix-host ./cmd/tetrix-host
-./tetrix-host relay serve --listen 127.0.0.1:8787
+tetrix-host relay serve --listen 127.0.0.1:8787
 ```
 
 To limit how many hosts the relay serves, add `--max-hosts`.
 
 ```sh
-./tetrix-host relay serve --listen 127.0.0.1:8787 --max-hosts 10
+tetrix-host relay serve --listen 127.0.0.1:8787 --max-hosts 10
 ```
 
 The relay limits how many connections one network address can open to a host. Behind a reverse proxy, every client appears to come from the proxy's address, so tell the relay to read the address the proxy reports.
 
 ```sh
-./tetrix-host relay serve --listen 127.0.0.1:8787 --behind-proxy
+tetrix-host relay serve --listen 127.0.0.1:8787 --behind-proxy
 ```
 
 Use `--behind-proxy` only when your own proxy is the only way to reach the relay's port. Without a proxy in front, a client could write any address it liked into the header.
