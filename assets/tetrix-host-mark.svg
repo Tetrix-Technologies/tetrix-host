@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 80" width="180" height="80" role="img" aria-label="Tetrix Host">
+  <!-- The Tetrix Host mark: a small computer seen from the front, with its
+       light on. One filled shape, and the light is a hole in it, so it shows
+       whatever the mark sits on.
+
+       The viewBox is the tight bound of the shape, as with the Tetrix mark,
+       so the mark centers itself in any container. Do not pad here. Pad at
+       the call site. The ink is #111111 on a light background and #EFEDE8 on
+       a dark one. -->
+  <style>
+    path { fill: #111111; }
+    @media (prefers-color-scheme: dark) { path { fill: #EFEDE8; } }
+  </style>
+  <path fill-rule="evenodd"
+        d="M28 0 H152 A28 28 0 0 1 180 28 V52 A28 28 0 0 1 152 80 H28 A28 28 0 0 1 0 52 V28 A28 28 0 0 1 28 0 Z
+           M148 40 A12 12 0 1 0 124 40 A12 12 0 1 0 148 40 Z"/>
+</svg>

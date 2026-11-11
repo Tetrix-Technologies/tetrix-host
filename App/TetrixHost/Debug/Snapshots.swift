@@ -344,7 +344,13 @@ private struct SnapshotWindow: View {
 // MARK: - Icon
 
 /// The app's mark: a rounded slab in ink on paper, a machine seen from the
-/// front, with one small moss dot as its status light.
+/// front, with its light on. The light is a hole in the slab, so it takes
+/// the color of whatever the mark sits on.
+///
+/// The mark's own drawing is `assets/tetrix-host-mark.svg`, 180 by 80
+/// units: corners of 28, and a light 24 across whose center is 44 from the
+/// right edge. The sizes below are those figures scaled to a slab 536 wide,
+/// about two thirds of the plate.
 struct IconMark: View {
 	static let side: CGFloat = 1024
 	/// The icon grid for the Mac: an 824 point plate in a 1024 canvas.
@@ -352,10 +358,10 @@ struct IconMark: View {
 	private static let plateRadius: CGFloat = 185
 	private static let plateBorder: CGFloat = 3
 	private static let slabWidth: CGFloat = 536
-	private static let slabHeight: CGFloat = 208
-	private static let slabRadius: CGFloat = 58
-	private static let light: CGFloat = 40
-	private static let lightInset: CGFloat = 72
+	private static let slabHeight: CGFloat = 238
+	private static let slabRadius: CGFloat = 83
+	private static let light: CGFloat = 71
+	private static let lightInset: CGFloat = 95
 
 	var body: some View {
 		ZStack {
@@ -367,10 +373,9 @@ struct IconMark: View {
 				.fill(Palette.ink.color(scheme: .light))
 				.frame(width: Self.slabWidth, height: Self.slabHeight)
 				.overlay(alignment: .trailing) {
-					// The slab is a dark surface, so its light takes the
-					// moss that the palette keeps for dark surfaces.
+					// The light shows the plate through the slab.
 					Circle()
-						.fill(Palette.moss.color(scheme: .dark))
+						.fill(Palette.paper.color(scheme: .light))
 						.frame(width: Self.light, height: Self.light)
 						.padding(.trailing, Self.lightInset)
 				}
