@@ -11,8 +11,6 @@ You need:
 - Go 1.26 or later, and Xcode for the Swift tests.
 - The `main` branch checked out, with nothing uncommitted and nothing unpushed.
 
-Homebrew and `install.sh` download a release without a login. While the repository is private, those downloads fail, so nobody can install the release. The script says so at the end.
-
 ## Rehearse
 
 Run the release as a dry run first.

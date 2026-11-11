@@ -2,8 +2,6 @@
 
 The host is one command, `tetrix-host`. Homebrew and the install script both put it on your `PATH`, so you can run it from any directory.
 
-No release is published yet. Until the first release, [install from a checkout](#install-from-a-checkout).
-
 ## Install with Homebrew
 
 On a Mac, or on Linux with Homebrew, run one command.

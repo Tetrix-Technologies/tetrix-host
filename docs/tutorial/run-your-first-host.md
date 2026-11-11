@@ -2,23 +2,17 @@
 
 In this tutorial we start a host on a Mac, give it two small models, talk to both from the terminal, and prove that a paired device can reach it through a sealed tunnel. It takes about ten minutes. At the end you have a working host and know the five commands you will use most.
 
-You need a Mac with Apple silicon, [Go](https://go.dev/dl/) 1.26 or later, and about 1 GB of free disk space.
+You need a Mac with Apple silicon, [Homebrew](https://brew.sh), and about 1 GB of free disk space.
 
 ## Install the host
 
-First, build and install the `tetrix-host` command from the repository root.
+First, install the `tetrix-host` command.
 
 ```sh
-make install
+brew install tetrix-technologies/tap/tetrix-host
 ```
 
-The command goes in `/usr/local/bin`, so `sudo` may ask for your password. The last lines say where the command is.
-
-```
-tetrix-host 0.1.0-dev is installed at /usr/local/bin/tetrix-host.
-```
-
-Now check that your shell finds it.
+Homebrew downloads the command and puts it on your `PATH`. Now check that your shell finds it.
 
 ```sh
 tetrix-host version
@@ -27,7 +21,7 @@ tetrix-host version
 You should see the name and a version.
 
 ```
-tetrix-host 0.1.0-dev
+tetrix-host 0.1.0
 ```
 
 ## Start an engine
