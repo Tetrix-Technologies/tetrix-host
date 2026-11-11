@@ -1,11 +1,14 @@
 # Tetrix Host. Run "make" for the list of targets.
-.PHONY: help build test interop vectors cross app relay-test docs clean
+.PHONY: help build install test interop vectors cross app relay-test docs dist install-test release clean
 
 help:
-	@grep -E '^[a-z]+:.*##' $(MAKEFILE_LIST) | sed -E 's/:.*## /\t/' | expand -t 12
+	@grep -E '^[a-z-]+:.*##' $(MAKEFILE_LIST) | sed -E 's/:.*## /\t/' | expand -t 14
 
 build: ## Build dist/tetrix-host
 	go build -trimpath -o dist/tetrix-host ./cmd/tetrix-host
+
+install: build ## Install the tetrix-host command from this checkout
+	sh install.sh --binary dist/tetrix-host
 
 test: ## Run the Go tests with the race detector, and the Swift tests
 	go vet ./...
@@ -37,6 +40,15 @@ relay-test: ## Test the Cloudflare Worker relay, run locally, with the Go relay'
 
 docs: ## Serve the docs as a site on 127.0.0.1:4786
 	node tools/docs-site/serve.mjs
+
+dist: ## Build the release archives in dist/release: make dist VERSION=0.1.0
+	scripts/dist.sh $(VERSION)
+
+install-test: ## Test install.sh against a release built here. BREW=1 also installs the formula with Homebrew
+	scripts/test-install.sh $(if $(BREW),--brew)
+
+release: ## Publish a release: make release VERSION=0.1.0. DRY_RUN=1 stops before anything is published
+	scripts/release.sh $(VERSION) $(if $(DRY_RUN),--dry-run)
 
 clean: ## Delete build output
 	rm -rf dist .build
