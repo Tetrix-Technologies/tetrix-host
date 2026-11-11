@@ -27,7 +27,7 @@ func cmdService(args []string) error {
 	if err != nil {
 		return err
 	}
-	if exe, err = filepath.EvalSymlinks(exe); err != nil {
+	if exe, err = servicePath(exe); err != nil {
 		return err
 	}
 	p, err := paths()
@@ -41,6 +41,34 @@ func cmdService(args []string) error {
 		return systemd(args[0], exe)
 	}
 	return fmt.Errorf("background service setup is not available on %s. Run \"%s serve\" under your own service manager", runtime.GOOS, brand.CLI)
+}
+
+// servicePath returns the path that a background service runs.
+//
+// A package manager such as Homebrew keeps each version in a directory of
+// its own and points a link on the PATH at the current one. The service has
+// to run the link. If it ran the file behind the link, it would stay on the
+// old version after an upgrade, and stop when that version is deleted.
+//
+// So when the command on the PATH is a link to this program, the answer is
+// the link. In every other case it is the program's own file.
+func servicePath(exe string) (string, error) {
+	file, err := filepath.EvalSymlinks(exe)
+	if err != nil {
+		return "", err
+	}
+	found, err := exec.LookPath(brand.CLI)
+	if err != nil {
+		return file, nil
+	}
+	link, err := filepath.Abs(found)
+	if err != nil {
+		return file, nil
+	}
+	if target, err := filepath.EvalSymlinks(link); err != nil || target != file {
+		return file, nil
+	}
+	return link, nil
 }
 
 func launchd(action, exe string, p config.Paths) error {
