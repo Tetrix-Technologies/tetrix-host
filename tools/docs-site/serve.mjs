@@ -48,6 +48,9 @@ const server = createServer(async (req, res) => {
 		if (path === '/' || path === '/index.html') {
 			res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
 			res.end(await readFile(join(here, 'index.html')));
+		} else if (path === '/icon.svg') {
+			res.writeHead(200, { 'content-type': 'image/svg+xml' });
+			res.end(await readFile(join(here, '..', '..', 'assets', 'icon.svg')));
 		} else if (path === '/manifest.json') {
 			res.writeHead(200, { 'content-type': 'application/json' });
 			res.end(JSON.stringify(await manifest()));
